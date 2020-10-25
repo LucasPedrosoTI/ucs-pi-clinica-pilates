@@ -78,6 +78,7 @@ public class Login extends javax.swing.JFrame {
 
     private void botaosairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaosairActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_botaosairActionPerformed
 
     private void botaoentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoentrarActionPerformed

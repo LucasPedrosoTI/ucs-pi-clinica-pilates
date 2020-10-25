@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package visão;
+package views;
 
 /**
  *
  * @author lucas
  */
-public class Aluno extends javax.swing.JFrame {
+public class Professor extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public Aluno() {
+    public Professor() {
         initComponents();
     }
 
@@ -33,14 +33,12 @@ public class Aluno extends javax.swing.JFrame {
         jLabelDATANASCIMENTO = new javax.swing.JLabel();
         jLabelNOME = new javax.swing.JLabel();
         jLabelTELEFONE = new javax.swing.JLabel();
-        jLabelALTURA = new javax.swing.JLabel();
-        jLabelPESO = new javax.swing.JLabel();
-        jLabelIMC = new javax.swing.JLabel();
+        jLabelRG = new javax.swing.JLabel();
+        jLabelTITULACAO = new javax.swing.JLabel();
         jTextFieldNOME = new javax.swing.JTextField();
-        jTextFieldIMC = new javax.swing.JTextField();
         jTextFieldDATANASCIMENTO = new javax.swing.JTextField();
-        jTextFieldALTURA = new javax.swing.JTextField();
-        jTextFieldPESO = new javax.swing.JTextField();
+        jTextFieldRG = new javax.swing.JTextField();
+        jTextFieldTITULACAO = new javax.swing.JTextField();
         jTextFieldCODIGO = new javax.swing.JTextField();
         jRadioButtonMASCULINO = new javax.swing.JRadioButton();
         jRadioButtonFEMININO = new javax.swing.JRadioButton();
@@ -51,7 +49,6 @@ public class Aluno extends javax.swing.JFrame {
         jTextFieldDATACADASTRO = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLISTAGEM = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButtonCANCELAR = new javax.swing.JButton();
         jButtonALTERAR = new javax.swing.JButton();
@@ -73,22 +70,17 @@ public class Aluno extends javax.swing.JFrame {
         jLabelTELEFONE.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelTELEFONE.setText("*Telefone:");
 
-        jLabelALTURA.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelALTURA.setText("*Altura:");
+        jLabelRG.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelRG.setText("*RG:");
 
-        jLabelPESO.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelPESO.setText("*Peso:");
-
-        jLabelIMC.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelIMC.setText("*IMC:");
-
-        jTextFieldIMC.setEnabled(false);
+        jLabelTITULACAO.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTITULACAO.setText("*Titulação:");
 
         jTextFieldDATANASCIMENTO.setToolTipText("//");
 
-        jTextFieldALTURA.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldRG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldALTURAActionPerformed(evt);
+                jTextFieldRGActionPerformed(evt);
             }
         });
 
@@ -126,13 +118,6 @@ public class Aluno extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableLISTAGEM);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/lupa2.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanelFORMULARIOLayout = new javax.swing.GroupLayout(jPanelFORMULARIO);
         jPanelFORMULARIO.setLayout(jPanelFORMULARIOLayout);
         jPanelFORMULARIOLayout.setHorizontalGroup(
@@ -155,31 +140,24 @@ public class Aluno extends javax.swing.JFrame {
                         .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldNOME, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
-                                .addGap(313, 313, 313)
-                                .addComponent(jLabelALTURA)
+                                .addComponent(jTextFieldTELEFONE1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(158, 158, 158)
+                                .addComponent(jLabelRG)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldALTURA, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldRG, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(78, 78, 78)
-                                .addComponent(jLabelPESO)))
+                                .addComponent(jLabelTITULACAO)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
-                                .addComponent(jTextFieldPESO, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabelIMC)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
                                 .addComponent(jLabelDATANASCIMENTO)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldDATANASCIMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(51, 51, 51))))
+                                .addComponent(jTextFieldDATANASCIMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldTITULACAO, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(92, 92, 92))))
             .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1176, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
                         .addComponent(jLabelCODIGO)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -187,13 +165,9 @@ public class Aluno extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabelDATACADASTRO)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldDATACADASTRO, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldDATACADASTRO, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1176, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
-                    .addGap(208, 208, 208)
-                    .addComponent(jTextFieldTELEFONE1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(864, Short.MAX_VALUE)))
         );
         jPanelFORMULARIOLayout.setVerticalGroup(
             jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,36 +178,28 @@ public class Aluno extends javax.swing.JFrame {
                     .addComponent(jTextFieldCODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDATACADASTRO)
                     .addComponent(jTextFieldDATACADASTRO, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldNOME, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelNOME)
-                        .addComponent(jLabelDATANASCIMENTO)
-                        .addComponent(jTextFieldDATANASCIMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNOME, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNOME)
+                    .addComponent(jLabelDATANASCIMENTO)
+                    .addComponent(jTextFieldDATANASCIMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTELEFONE)
-                    .addComponent(jLabelALTURA)
-                    .addComponent(jTextFieldALTURA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelPESO)
-                    .addComponent(jTextFieldPESO, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelIMC)
-                    .addComponent(jTextFieldIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelRG)
+                    .addComponent(jTextFieldRG, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTITULACAO)
+                    .addComponent(jTextFieldTITULACAO, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTELEFONE1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonMASCULINO)
                     .addComponent(jRadioButtonFEMININO)
                     .addComponent(jLabelTELEFONE1))
-                .addGap(80, 80, 80)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
-            .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
-                    .addGap(147, 147, 147)
-                    .addComponent(jTextFieldTELEFONE1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(399, Short.MAX_VALUE)))
+                .addGap(34, 34, 34))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), null));
@@ -262,9 +228,9 @@ public class Aluno extends javax.swing.JFrame {
                 .addComponent(jButtonSALVAR, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(115, 115, 115)
                 .addComponent(jButtonALTERAR, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133)
+                .addGap(94, 94, 94)
                 .addComponent(jButtonCANCELAR, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(49, 49, 49))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +249,7 @@ public class Aluno extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelFORMULARIO, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, Short.MAX_VALUE)
+            .addComponent(jPanelFORMULARIO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,7 +257,7 @@ public class Aluno extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelFORMULARIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(197, 197, 197))
+                .addGap(96, 96, 96))
         );
 
         getContentPane().add(jPanel1);
@@ -299,15 +265,15 @@ public class Aluno extends javax.swing.JFrame {
 
         jLabelbackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/pilates_1.jpg"))); // NOI18N
         getContentPane().add(jLabelbackground);
-        jLabelbackground.setBounds(0, 4, 1280, 720);
+        jLabelbackground.setBounds(0, 0, 1280, 720);
 
         setSize(new java.awt.Dimension(1296, 759));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldALTURAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldALTURAActionPerformed
+    private void jTextFieldRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRGActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldALTURAActionPerformed
+    }//GEN-LAST:event_jTextFieldRGActionPerformed
 
     private void jButtonVOLTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVOLTARActionPerformed
         // TODO add your handling code here:
@@ -315,10 +281,6 @@ public class Aluno extends javax.swing.JFrame {
         menu1.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVOLTARActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,18 +299,14 @@ public class Aluno extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Aluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Professor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Aluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Professor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Aluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Professor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Aluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Professor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -357,27 +315,25 @@ public class Aluno extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Aluno().setVisible(true);
+                new Professor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupSEXO;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonALTERAR;
     private javax.swing.JButton jButtonCANCELAR;
     private javax.swing.JButton jButtonSALVAR;
     private javax.swing.JButton jButtonVOLTAR;
-    private javax.swing.JLabel jLabelALTURA;
     private javax.swing.JLabel jLabelCODIGO;
     private javax.swing.JLabel jLabelDATACADASTRO;
     private javax.swing.JLabel jLabelDATANASCIMENTO;
-    private javax.swing.JLabel jLabelIMC;
     private javax.swing.JLabel jLabelNOME;
-    private javax.swing.JLabel jLabelPESO;
+    private javax.swing.JLabel jLabelRG;
     private javax.swing.JLabel jLabelTELEFONE;
     private javax.swing.JLabel jLabelTELEFONE1;
+    private javax.swing.JLabel jLabelTITULACAO;
     private javax.swing.JLabel jLabelbackground;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -386,13 +342,12 @@ public class Aluno extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonMASCULINO;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableLISTAGEM;
-    private javax.swing.JTextField jTextFieldALTURA;
     private javax.swing.JTextField jTextFieldCODIGO;
     private javax.swing.JTextField jTextFieldDATACADASTRO;
     private javax.swing.JTextField jTextFieldDATANASCIMENTO;
-    private javax.swing.JTextField jTextFieldIMC;
     private javax.swing.JTextField jTextFieldNOME;
-    private javax.swing.JTextField jTextFieldPESO;
+    private javax.swing.JTextField jTextFieldRG;
     private javax.swing.JTextField jTextFieldTELEFONE1;
+    private javax.swing.JTextField jTextFieldTITULACAO;
     // End of variables declaration//GEN-END:variables
 }

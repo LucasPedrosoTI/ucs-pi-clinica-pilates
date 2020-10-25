@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package visão;
+package views;
 
 /**
  *
  * @author lucas
  */
-public class Atividade extends javax.swing.JFrame {
+public class Turma extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public Atividade() {
+    public Turma() {
         initComponents();
     }
 
@@ -29,8 +29,20 @@ public class Atividade extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanelFORMULARIO = new javax.swing.JPanel();
-        jLabelATIVIDADE = new javax.swing.JLabel();
+        jLabelDATANAINICIAL = new javax.swing.JLabel();
+        jLabelPROFESSOR = new javax.swing.JLabel();
+        jLabelTURMA = new javax.swing.JLabel();
         jLabelDATAFINAL = new javax.swing.JLabel();
+        jTextFieldDATAINICIAL = new javax.swing.JTextField();
+        jTextFieldDATAFINAL = new javax.swing.JTextField();
+        jTextFieldDURACAO = new javax.swing.JTextField();
+        jLabelHORARIOAULA = new javax.swing.JLabel();
+        jLabelDURACAO = new javax.swing.JLabel();
+        jComboBoxHORARIOAULA = new javax.swing.JComboBox<>();
+        jTextFieldTURMA = new javax.swing.JTextField();
+        jComboBoxPROFESSOR = new javax.swing.JComboBox<>();
+        jScrollPaneLISTAGEM = new javax.swing.JScrollPane();
+        jTableLISTAGEM = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jButtonCANCELAR = new javax.swing.JButton();
         jButtonALTERAR = new javax.swing.JButton();
@@ -43,31 +55,105 @@ public class Atividade extends javax.swing.JFrame {
 
         jPanelFORMULARIO.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), null));
 
-        jLabelATIVIDADE.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelATIVIDADE.setText("Atividade:");
+        jLabelDATANAINICIAL.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelDATANAINICIAL.setText("Data Inicial:");
+
+        jLabelPROFESSOR.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelPROFESSOR.setText("*Professor:");
+
+        jLabelTURMA.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTURMA.setText("*Turma:");
 
         jLabelDATAFINAL.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelDATAFINAL.setText("Descrição:");
+        jLabelDATAFINAL.setText("Data Final:");
+
+        jTextFieldDATAINICIAL.setToolTipText("//");
+
+        jTextFieldDURACAO.setOpaque(false);
+
+        jLabelHORARIOAULA.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelHORARIOAULA.setText("Horário de Aula:");
+
+        jLabelDURACAO.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelDURACAO.setText("Duração:");
+
+        jComboBoxHORARIOAULA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTextFieldTURMA.setToolTipText("//");
+
+        jComboBoxPROFESSOR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTableLISTAGEM.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneLISTAGEM.setViewportView(jTableLISTAGEM);
 
         javax.swing.GroupLayout jPanelFORMULARIOLayout = new javax.swing.GroupLayout(jPanelFORMULARIO);
         jPanelFORMULARIO.setLayout(jPanelFORMULARIOLayout);
         jPanelFORMULARIOLayout.setHorizontalGroup(
             jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelDATAFINAL)
-                    .addComponent(jLabelATIVIDADE))
+                .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelDURACAO)
+                            .addComponent(jLabelTURMA)
+                            .addComponent(jLabelPROFESSOR)
+                            .addComponent(jLabelHORARIOAULA))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBoxHORARIOAULA, 0, 214, Short.MAX_VALUE)
+                            .addComponent(jComboBoxPROFESSOR, 0, 214, Short.MAX_VALUE)
+                            .addComponent(jTextFieldTURMA)
+                            .addComponent(jTextFieldDURACAO))
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelDATAFINAL)
+                            .addComponent(jLabelDATANAINICIAL))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldDATAINICIAL, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                            .addComponent(jTextFieldDATAFINAL)))
+                    .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPaneLISTAGEM, javax.swing.GroupLayout.PREFERRED_SIZE, 1176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelFORMULARIOLayout.setVerticalGroup(
             jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jLabelATIVIDADE)
-                .addGap(60, 60, 60)
-                .addComponent(jLabelDATAFINAL)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPROFESSOR)
+                    .addComponent(jLabelDATANAINICIAL)
+                    .addComponent(jTextFieldDATAINICIAL, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxPROFESSOR, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTURMA)
+                    .addComponent(jLabelDATAFINAL)
+                    .addComponent(jTextFieldDATAFINAL, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTURMA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelHORARIOAULA)
+                    .addComponent(jComboBoxHORARIOAULA, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDURACAO)
+                    .addComponent(jTextFieldDURACAO, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(jScrollPaneLISTAGEM, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), null));
@@ -92,7 +178,7 @@ public class Atividade extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonVOLTAR, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 508, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSALVAR, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(115, 115, 115)
                 .addComponent(jButtonALTERAR, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,22 +249,14 @@ public class Atividade extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Atividade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Turma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Atividade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Turma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Atividade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Turma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Atividade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Turma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -191,7 +269,7 @@ public class Atividade extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Atividade().setVisible(true);
+                new Turma().setVisible(true);
             }
         });
     }
@@ -201,11 +279,23 @@ public class Atividade extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCANCELAR;
     private javax.swing.JButton jButtonSALVAR;
     private javax.swing.JButton jButtonVOLTAR;
-    private javax.swing.JLabel jLabelATIVIDADE;
+    private javax.swing.JComboBox<String> jComboBoxHORARIOAULA;
+    private javax.swing.JComboBox<String> jComboBoxPROFESSOR;
     private javax.swing.JLabel jLabelDATAFINAL;
+    private javax.swing.JLabel jLabelDATANAINICIAL;
+    private javax.swing.JLabel jLabelDURACAO;
+    private javax.swing.JLabel jLabelHORARIOAULA;
+    private javax.swing.JLabel jLabelPROFESSOR;
+    private javax.swing.JLabel jLabelTURMA;
     private javax.swing.JLabel jLabelbackground;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelFORMULARIO;
+    private javax.swing.JScrollPane jScrollPaneLISTAGEM;
+    private javax.swing.JTable jTableLISTAGEM;
+    private javax.swing.JTextField jTextFieldDATAFINAL;
+    private javax.swing.JTextField jTextFieldDATAINICIAL;
+    private javax.swing.JTextField jTextFieldDURACAO;
+    private javax.swing.JTextField jTextFieldTURMA;
     // End of variables declaration//GEN-END:variables
 }

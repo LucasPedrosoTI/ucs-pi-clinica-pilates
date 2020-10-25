@@ -1,11 +1,26 @@
 package views;
 
-public class Login extends javax.swing.JFrame {
+import java.util.ArrayList;
+import java.util.List;
+import model.*;
 
+public class Login extends javax.swing.JFrame {
+    
+    List<Usuario> usuarios = new ArrayList<>();
+    Usuario gestor; 
+    Usuario aluno;
+    Usuario professor;
+    
     /**
      * Creates new form Login
      */
     public Login() {
+        this.gestor = new Usuario("gestor", "gestor", Acesso.GESTOR);
+        this.aluno = new Usuario("aluno", "aluno", Acesso.ALUNO);
+        this.professor = new Usuario("prof", "prof", Acesso.PROFESSOR);
+        usuarios.add(aluno);
+        usuarios.add(gestor);
+        usuarios.add(professor);
         initComponents();
     }
 

@@ -1,12 +1,32 @@
 package views;
 
+import java.util.ArrayList;
+import java.util.List;
+import model.*;
+import model.Aluno;
+import model.Professor;
+import utils.Validator;
+
 public class Login extends javax.swing.JFrame {
+
+    private List<Usuario> usuarios = new ArrayList<>();
+    private Usuario gestor;
+    private Usuario aluno;
+    private Usuario professor;
 
     /**
      * Creates new form Login
      */
     public Login() {
+        this.gestor = new Gestor("gestor", "gestor", Acesso.GESTOR);
+        this.aluno = new Aluno("aluno", "aluno", Acesso.ALUNO);
+        this.professor = new Professor("prof", "prof", Acesso.PROFESSOR);
+        usuarios.add(aluno);
+        usuarios.add(gestor);
+        usuarios.add(professor);
+
         initComponents();
+        erro.setVisible(false);
     }
 
     /**
@@ -25,6 +45,7 @@ public class Login extends javax.swing.JFrame {
         botaosair = new javax.swing.JButton();
         botaoentrar = new javax.swing.JButton();
         campousuario = new javax.swing.JTextField();
+        erro = new javax.swing.JTextField();
         labelbackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,8 +86,20 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(campousuario);
         campousuario.setBounds(30, 80, 168, 43);
 
+        erro.setBackground(new java.awt.Color(255, 255, 255));
+        erro.setForeground(new java.awt.Color(255, 0, 0));
+        erro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        erro.setText("Usuário ou Senha Inválidos");
+        erro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                erroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(erro);
+        erro.setBounds(11, 320, 210, 22);
+
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(530, 170, 230, 320);
+        jPanel1.setBounds(530, 170, 230, 350);
 
         labelbackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/pilates_1.jpg"))); // NOI18N
         getContentPane().add(labelbackground);
@@ -82,11 +115,21 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_botaosairActionPerformed
 
     private void botaoentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoentrarActionPerformed
-        
-        Menu tela = new Menu();
-        tela.setVisible(true);
-        dispose();
+        String username = this.campousuario.getText();
+        String password = String.copyValueOf(this.camposenha.getPassword());
+
+        if (Validator.eUsuarioValido(usuarios, username, password)) {
+            Menu tela = new Menu();
+            tela.setVisible(true);
+            dispose();
+        } else {
+            erro.setVisible(true);
+        }
     }//GEN-LAST:event_botaoentrarActionPerformed
+
+    private void erroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_erroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_erroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,6 +164,7 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -129,6 +173,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton botaosair;
     private javax.swing.JPasswordField camposenha;
     private javax.swing.JTextField campousuario;
+    private javax.swing.JTextField erro;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelbackground;
     private javax.swing.JLabel labelsenha;

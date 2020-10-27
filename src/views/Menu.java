@@ -87,6 +87,16 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenurelatorio);
 
         jMenusair.setText("Sair");
+        jMenusair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenusairMouseClicked(evt);
+            }
+        });
+        jMenusair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenusairActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenusair);
 
         setJMenuBar(jMenuBar1);
@@ -100,33 +110,45 @@ public class Menu extends javax.swing.JFrame {
         Aluno aluno1 = new Aluno();
         aluno1.setVisible(true);
         dispose();
-        
+
     }//GEN-LAST:event_jMenucadalunoActionPerformed
 
     private void jMenucadprofessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenucadprofessorActionPerformed
         // TODO add your handling code here:
-        
+
         Professor professor1 = new Professor();
         professor1.setVisible(true);
         dispose();
-        
+
     }//GEN-LAST:event_jMenucadprofessorActionPerformed
 
     private void jMenucadturmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenucadturmaActionPerformed
         // TODO add your handling code here:
-        
-        Turma  turma1 = new Turma();
+
+        Turma turma1 = new Turma();
         turma1.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenucadturmaActionPerformed
 
     private void jMenucadatividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenucadatividadeActionPerformed
         // TODO add your handling code here:
-        
+
         Atividade atividade1 = new Atividade();
         atividade1.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenucadatividadeActionPerformed
+
+    private void jMenusairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenusairActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jMenusairActionPerformed
+
+    private void jMenusairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenusairMouseClicked
+        // TODO add your handling code here:
+        Login login = new Login();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenusairMouseClicked
 
     /**
      * @param args the command line arguments

@@ -46,7 +46,4 @@ public class Usuario {
         this.tipoAcesso = tipoAcesso;
     }
 
-    
-    
-    
 }

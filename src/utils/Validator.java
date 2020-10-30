@@ -15,19 +15,16 @@ import model.Usuario;
 public class Validator {
 
     public static boolean eUsuarioValido(List<Usuario> usuarios, String username, String password) {
-        
-        boolean eValido = false;
-        
+
         for (Usuario usuario : usuarios) {
             if (usuario.getUsername().equals(username)) {
-                if(usuario.getSenha().equals(password)){
-                    eValido = true;
-                    return eValido;
+                if (usuario.getSenha().equals(password)) {
+                    return true;
                 }
             }
         }
 
-        return eValido;
+        return false;
     }
 
 }

@@ -9,9 +9,14 @@ package model;
  *
  * @author lps10
  */
-public class Usuario {
+public class Usuario implements Cloneable {
+
     private String username, senha;
     private Acesso tipoAcesso;
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
     public Usuario() {
     }
@@ -51,5 +56,4 @@ public class Usuario {
         return "Usuario{" + "username=" + username + ", senha=" + senha + ", tipoAcesso=" + tipoAcesso + '}';
     }
 
-    
 }

@@ -17,7 +17,6 @@ public class BD {
 
     public static List<Usuario> usuarios = new ArrayList<>();
     public static List<Turma> turmas = new ArrayList<>();
-    ;
     public static List<Atividade> atividades = new ArrayList<>();
     public static Gestor gestor = new Gestor("gestor", "gestor", "gestor", Acesso.GESTOR);
     public static Usuario usuarioLogado;
@@ -30,9 +29,9 @@ public class BD {
 
     public static Usuario getUsuarioByUsername(String username) {
 
-        return usuarios.stream().filter(usuario -> usuario.getUsername().equals(username)).collect(Collectors.toList()).get(0);
+        return usuarios.stream().filter(usuario -> usuario.getUsername().equals(username)).collect(Collectors.toList())
+                .get(0);
     }
-
 
     public static Usuario getUsuarioLogado() {
 
@@ -40,14 +39,17 @@ public class BD {
 
     }
 
-    public static void setUsuarioLogado(Usuario usuarioLogado) {
-        
-         if (usuarioLogado.getTipoAcesso().equals(Acesso.ALUNO)) {
-            // BD.usuarioLogado = new Aluno(usarioLogado); // copiar dados do usuário logado para o novo objeto Aluno
+    public static void setUsuarioLogado(Usuario usuarioLogado) throws CloneNotSupportedException {
+
+        if (usuarioLogado.getTipoAcesso().equals(Acesso.ALUNO)) {
+            Aluno aluno = (Aluno) usuarioLogado;
+            BD.usuarioLogado = aluno;
         } else if (usuarioLogado.getTipoAcesso().equals(Acesso.PROFESSOR)) {
-            //BD.usuarioLogado = new Professo(usarioLogado)
+            Professor prof = (Professor) usuarioLogado;
+            BD.usuarioLogado = prof;
         } else {
-            //BD.usuarioLogado = new Gestor(usarioLogado)
+            Gestor gestor = (Gestor) usuarioLogado;
+            BD.usuarioLogado = gestor;
         }
 
     }

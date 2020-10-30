@@ -1,30 +1,32 @@
 package views;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import model.*;
+import model.BD;
 import model.Aluno;
 import model.Professor;
 import utils.Validator;
 
 public class Login extends javax.swing.JFrame {
-
-    private List<Usuario> usuarios = new ArrayList<>();
-    private Usuario gestor;
-    private Usuario aluno;
-    private Usuario professor;
-
+    
+//    private List<Usuario> usuarios = new ArrayList<>();;
+//    private Usuario gestor;
+//    private Usuario aluno;
+//    private Usuario professor;
+    
     /**
      * Creates new form Login
      */
     public Login() {
-        this.gestor = new Gestor("gestor", "gestor", Acesso.GESTOR);
-        this.aluno = new Aluno("aluno", "aluno", Acesso.ALUNO);
-        this.professor = new Professor("prof", "prof", Acesso.PROFESSOR);
-        usuarios.add(aluno);
-        usuarios.add(gestor);
-        usuarios.add(professor);
-
+//        this.gestor = new Gestor("gestor", "gestor", Acesso.GESTOR);
+//        this.aluno = new Aluno("aluno", "aluno", Acesso.ALUNO);
+//        this.professor = new Professor("prof", "prof", Acesso.PROFESSOR);
+//        usuarios.add(aluno);
+//        usuarios.add(gestor);
+//        usuarios.add(professor);
         initComponents();
         erro.setVisible(false);
     }
@@ -117,14 +119,23 @@ public class Login extends javax.swing.JFrame {
     private void botaoentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoentrarActionPerformed
         String username = this.campousuario.getText();
         String password = String.copyValueOf(this.camposenha.getPassword());
-
-        if (Validator.eUsuarioValido(usuarios, username, password)) {
-            Menu tela = new Menu();
-            tela.setVisible(true);
-            dispose();
-        } else {
-            erro.setVisible(true);
-        }
+       
+//       BD.getUsuarios().add(new Aluno("aluno2", "123456", Acesso.ALUNO));
+       
+  
+       System.out.println();
+            
+       if(Validator.eUsuarioValido(BD.getUsuarios(), username, password)){
+           Usuario usuarioLogado = BD.getUsuarioByUsername(username);
+           BD.setUsuarioLogado(usuarioLogado);
+           
+           Menu tela = new Menu();
+           tela.setVisible(true);
+           dispose();
+           
+       } else {
+           erro.setVisible(true);
+       }
     }//GEN-LAST:event_botaoentrarActionPerformed
 
     private void erroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_erroActionPerformed
@@ -157,11 +168,12 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                BD.generateBd();
+                new Login().setVisible(true); 
             }
         });
 

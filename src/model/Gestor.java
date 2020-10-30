@@ -20,6 +20,19 @@ public class Gestor extends Usuario {
         super(username, senha, tipoAcesso);
     }
 
+    public Gestor(String nome, String username, String senha, Acesso tipoAcesso) {
+        super(username, senha, tipoAcesso);
+        this.nome = nome;
+    }
+    
+    
+
+    @Override
+    public String toString() {
+        super.toString();
+        return "Gestor{" + "nome=" + nome + '}';
+    }
+
     
     
 }

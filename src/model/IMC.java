@@ -5,38 +5,14 @@
  */
 package model;
 
-
 public class IMC {
-    
-    private float peso;
-    private float altura;
 
-    IMC(float peso, float altura){
-        this.peso = peso;
-        this.altura = altura;
-    }
-
-    public float getPeso() {
-        return peso;
-    }
-
-    public float getAltura() {
-        return altura;
-    }
-
-    public void setPeso(float peso) {
-        this.peso = peso;
-    }
-
-    public void setAltura(float altura) {
-        this.altura = altura;
-    }
-    
-    float calcularIMC(){
-        return peso / (altura * 2);
-    }
-    
-    
+    public static double calcularIMC(String peso, String altura) {
         
+        Double pesoDouble = Double.valueOf(peso);
+        Double alturaDouble = Double.valueOf(altura);
+            
+        return pesoDouble / Math.pow(alturaDouble, 2);
+    }
+
 }
-    

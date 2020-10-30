@@ -5,17 +5,33 @@
  */
 package views;
 
+import java.util.Date;
+import model.Acesso;
+import model.BD;
+import model.Aluno;
+import model.IMC;
+import model.Telefone;
+import model.Usuario;
+
 /**
  *
  * @author lucas
  */
-public class Aluno extends javax.swing.JFrame {
+public class AlunoView extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public Aluno() {
+    public AlunoView() {
         initComponents();
+
+        Usuario usuarioLogado = BD.getUsuarioLogado();
+        
+        if (!usuarioLogado.getTipoAcesso().equals(Acesso.GESTOR)) {
+            jTextFieldNOME.setText(usuarioLogado.getUsername());
+            jTextFieldNOME.setEditable(false);
+            jTextFieldNOME.setEnabled(false);
+        }
     }
 
     /**
@@ -40,7 +56,6 @@ public class Aluno extends javax.swing.JFrame {
         jTextFieldIMC = new javax.swing.JTextField();
         jTextFieldDATANASCIMENTO = new javax.swing.JTextField();
         jTextFieldALTURA = new javax.swing.JTextField();
-        jTextFieldPESO = new javax.swing.JTextField();
         jTextFieldCODIGO = new javax.swing.JTextField();
         jRadioButtonMASCULINO = new javax.swing.JRadioButton();
         jRadioButtonFEMININO = new javax.swing.JRadioButton();
@@ -52,6 +67,7 @@ public class Aluno extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLISTAGEM = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jTextFieldPeso = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jButtonCANCELAR = new javax.swing.JButton();
         jButtonALTERAR = new javax.swing.JButton();
@@ -133,6 +149,13 @@ public class Aluno extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldPeso.setToolTipText("Peso");
+        jTextFieldPeso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPesoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelFORMULARIOLayout = new javax.swing.GroupLayout(jPanelFORMULARIO);
         jPanelFORMULARIO.setLayout(jPanelFORMULARIOLayout);
         jPanelFORMULARIOLayout.setHorizontalGroup(
@@ -164,8 +187,8 @@ public class Aluno extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
-                                .addComponent(jTextFieldPESO, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)
+                                .addComponent(jTextFieldPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabelIMC)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -218,23 +241,25 @@ public class Aluno extends javax.swing.JFrame {
                     .addComponent(jLabelALTURA)
                     .addComponent(jTextFieldALTURA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPESO)
-                    .addComponent(jTextFieldPESO, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelIMC)
-                    .addComponent(jTextFieldIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonMASCULINO)
                     .addComponent(jRadioButtonFEMININO)
                     .addComponent(jLabelTELEFONE1))
-                .addGap(80, 80, 80)
+                .addGap(83, 83, 83)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
             .addGroup(jPanelFORMULARIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelFORMULARIOLayout.createSequentialGroup()
                     .addGap(147, 147, 147)
                     .addComponent(jTextFieldTELEFONE1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(399, Short.MAX_VALUE)))
         );
+
+        jTextFieldPeso.getAccessibleContext().setAccessibleName("");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), null));
 
@@ -250,6 +275,11 @@ public class Aluno extends javax.swing.JFrame {
         });
 
         jButtonSALVAR.setText("SALVAR");
+        jButtonSALVAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSALVARActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -258,7 +288,7 @@ public class Aluno extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonVOLTAR, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 528, Short.MAX_VALUE)
                 .addComponent(jButtonSALVAR, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(115, 115, 115)
                 .addComponent(jButtonALTERAR, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,15 +313,18 @@ public class Aluno extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelFORMULARIO, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelFORMULARIO, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelFORMULARIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(197, 197, 197))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -305,10 +338,6 @@ public class Aluno extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldALTURAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldALTURAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldALTURAActionPerformed
-
     private void jButtonVOLTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVOLTARActionPerformed
         // TODO add your handling code here:
         Menu menu1 = new Menu();
@@ -316,9 +345,35 @@ public class Aluno extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonVOLTARActionPerformed
 
+    private void jButtonSALVARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSALVARActionPerformed
+        // TODO add your handling code here:
+
+        String nome = this.jTextFieldNOME.getText();
+        String dataNascimento = this.jTextFieldDATANASCIMENTO.getText();
+        Telefone telefone = new Telefone(this.jTextFieldTELEFONE1.getText());
+        String altura = this.jTextFieldALTURA.getText();
+        String peso = this.jTextFieldALTURA.getText();
+        Date dataMatricula = new Date();
+        double imc = IMC.calcularIMC(peso, altura);
+
+        Aluno aluno = new Aluno(dataMatricula, nome, "teste", dataNascimento, null, telefone, peso, altura, imc, nome, nome, Acesso.ALUNO);
+
+        BD.getUsuarios().add(aluno);
+
+        System.out.println(BD.getUsuarios().size());
+    }//GEN-LAST:event_jButtonSALVARActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextFieldALTURAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldALTURAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldALTURAActionPerformed
+
+    private void jTextFieldPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPesoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPesoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,7 +412,7 @@ public class Aluno extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Aluno().setVisible(true);
+                new AlunoView().setVisible(true);
             }
         });
     }
@@ -392,7 +447,7 @@ public class Aluno extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldDATANASCIMENTO;
     private javax.swing.JTextField jTextFieldIMC;
     private javax.swing.JTextField jTextFieldNOME;
-    private javax.swing.JTextField jTextFieldPESO;
+    private javax.swing.JTextField jTextFieldPeso;
     private javax.swing.JTextField jTextFieldTELEFONE1;
     // End of variables declaration//GEN-END:variables
 }

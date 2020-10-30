@@ -46,4 +46,10 @@ public class Usuario {
         this.tipoAcesso = tipoAcesso;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "username=" + username + ", senha=" + senha + ", tipoAcesso=" + tipoAcesso + '}';
+    }
+
+    
 }

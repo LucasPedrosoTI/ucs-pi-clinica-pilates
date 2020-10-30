@@ -10,20 +10,16 @@ package model;
  * @author lps10
  */
 public class Telefone {
-    private int telefoneId;
     private String numero;
 
     public Telefone() {
     }
 
-    public Telefone(int telefoneId, String numero) {
-        this.telefoneId = telefoneId;
+    public Telefone(String numero) {
         this.numero = numero;
     }
 
-    public int getTelefoneId() {
-        return telefoneId;
-    }
+
 
     public String getNumero() {
         return numero;

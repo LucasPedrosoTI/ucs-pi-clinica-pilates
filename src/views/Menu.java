@@ -107,7 +107,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenucadalunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenucadalunoActionPerformed
         // TODO add your handling code here:
-        Aluno aluno1 = new Aluno();
+        AlunoView aluno1 = new AlunoView();
         aluno1.setVisible(true);
         dispose();
 

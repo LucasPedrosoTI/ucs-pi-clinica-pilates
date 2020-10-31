@@ -5,14 +5,22 @@
  */
 package model;
 
+import javax.naming.directory.InvalidAttributeValueException;
+
+import utils.Utils;
+
 public class IMC {
 
-    public static double calcularIMC(String peso, String altura) {
-        
-        Double pesoDouble = Double.valueOf(peso);
-        Double alturaDouble = Double.valueOf(altura);
-            
-        return pesoDouble / Math.pow(alturaDouble, 2);
+    public static double calcularIMC(String peso, String altura) throws InvalidAttributeValueException {
+        try {
+            Double pesoDouble = Double.valueOf(peso);
+            Double alturaDouble = Double.valueOf(altura);
+
+            return Utils.paraDuasCasasDecimais((pesoDouble / Math.pow(alturaDouble, 2)));
+        } catch (Exception e) {
+            throw new InvalidAttributeValueException("Peso e Altura devem ser números");
+        }
+
     }
 
 }

@@ -5,6 +5,8 @@
  */
 package views;
 
+import javax.naming.directory.InvalidAttributeValueException;
+
 /**
  *
  * @author lucas
@@ -98,7 +100,11 @@ public class Menu extends javax.swing.JFrame {
         jMenusair.setText("Sair");
         jMenusair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenusairMouseClicked(evt);
+                try {
+                    jMenusairMouseClicked(evt);
+                } catch (InvalidAttributeValueException e) {
+                    e.printStackTrace();
+                }
             }
         });
         jMenusair.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +158,7 @@ public class Menu extends javax.swing.JFrame {
 
     }// GEN-LAST:event_jMenusairActionPerformed
 
-    private void jMenusairMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jMenusairMouseClicked
+    private void jMenusairMouseClicked(java.awt.event.MouseEvent evt) throws InvalidAttributeValueException {// GEN-FIRST:event_jMenusairMouseClicked
         // TODO add your handling code here:
         Login login = new Login();
         login.setVisible(true);

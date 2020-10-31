@@ -19,9 +19,7 @@ public class Validator {
 
         for (Usuario usuario : usuarios) {
             if (usuario.getUsername().equals(username)) {
-                if (usuario.getSenha().equals(password)) {
-                    return true;
-                }
+                return usuario.getSenha().equals(password);
             }
         }
 

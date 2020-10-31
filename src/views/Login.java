@@ -1,5 +1,7 @@
 package views;
 
+import javax.naming.directory.InvalidAttributeValueException;
+
 import model.*;
 import model.BD;
 
@@ -14,10 +16,14 @@ public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
+     * 
+     * @throws InvalidAttributeValueException
      */
-    public Login() {
+    public Login() throws InvalidAttributeValueException {
 
         initComponents();
+        campousuario.setText("gestor");
+        camposenha.setText("gestor");
         BD.generateBd();
         erro.setVisible(false);
     }
@@ -166,7 +172,11 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                try {
+                    new Login().setVisible(true);
+                } catch (InvalidAttributeValueException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

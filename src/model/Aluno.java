@@ -1,8 +1,10 @@
 package model;
 
+import javax.naming.directory.InvalidAttributeValueException;
+
 public class Aluno extends Usuario {
 
-    private long codigoMatricula;
+    private Long codigoMatricula;
     private String nome, endereco, dataNascimento, dataMatricula;
     private Telefone telefone;
     private String peso, altura;
@@ -18,14 +20,14 @@ public class Aluno extends Usuario {
 
     public Aluno(String username, Acesso tipoAcesso) {
         super(username, tipoAcesso);
-        this.codigoMatricula = qtdAlunos;
+        this.codigoMatricula = (long) qtdAlunos;
         setSenha(this.codigoMatricula + getUsername());
     }
 
     public Aluno(String dataMatricula, String nome, String endereco, String dataNascimento, Telefone telefone,
-            String peso, String altura, String username, Acesso tipoAcesso) {
+            String peso, String altura, String username, Acesso tipoAcesso) throws InvalidAttributeValueException {
         super(username, tipoAcesso);
-        this.codigoMatricula = qtdAlunos;
+        this.codigoMatricula = (long) qtdAlunos;
         setSenha(this.codigoMatricula + getUsername());
         this.dataMatricula = dataMatricula;
         this.nome = nome;
@@ -37,12 +39,8 @@ public class Aluno extends Usuario {
         this.imc = IMC.calcularIMC(peso, altura);
     }
 
-    public long getCodigoMatricula() {
+    public Long getCodigoMatricula() {
         return codigoMatricula;
-    }
-
-    public void setCodigoMatricula(long codigoMatricula) {
-        this.codigoMatricula = codigoMatricula;
     }
 
     public String getDataMatricula() {
@@ -101,7 +99,7 @@ public class Aluno extends Usuario {
         this.altura = altura;
     }
 
-    public double getImc() {
+    public Double getImc() {
         return imc;
     }
 

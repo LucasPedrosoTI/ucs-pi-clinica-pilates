@@ -15,8 +15,10 @@ public class IMC {
         try {
             Double pesoDouble = Double.valueOf(peso);
             Double alturaDouble = Double.valueOf(altura);
+            
+            Double imc = pesoDouble / Math.pow(alturaDouble, 2);
 
-            return Utils.paraDuasCasasDecimais((pesoDouble / Math.pow(alturaDouble, 2)));
+            return Utils.paraDuasCasasDecimais(imc);
         } catch (Exception e) {
             throw new InvalidAttributeValueException("Peso e Altura devem ser números");
         }

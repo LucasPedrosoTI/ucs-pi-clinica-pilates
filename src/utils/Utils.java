@@ -9,9 +9,9 @@ public class Utils {
 
   public static Double paraDuasCasasDecimais(Double num) {
 
-    Double numXCem = num * 100;
+    Double numXCem = num * 100.0;
 
-    return Double.valueOf(numXCem.longValue() / 100);
+    return numXCem.longValue() / 100.0;
   }
 
   public static void limparCampos(List<JTextField> campos) {

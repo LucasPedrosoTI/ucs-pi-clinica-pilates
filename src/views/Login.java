@@ -13,6 +13,8 @@ public class Login extends javax.swing.JFrame {
      *
      */
     private static final long serialVersionUID = 1L;
+    
+    private static boolean gerarBanco = true;
 
     /**
      * Creates new form Login
@@ -20,11 +22,15 @@ public class Login extends javax.swing.JFrame {
      * @throws InvalidAttributeValueException
      */
     public Login() throws InvalidAttributeValueException {
+        if(gerarBanco) {
+            BD.generateBd();
+            gerarBanco = false;
+        }
 
         initComponents();
         campousuario.setText("gestor");
         camposenha.setText("gestor");
-        BD.generateBd();
+        
         erro.setVisible(false);
     }
 
@@ -112,7 +118,7 @@ public class Login extends javax.swing.JFrame {
 
         setSize(new java.awt.Dimension(1280, 720));
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
     private void botaosairActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaosairActionPerformed
         this.dispose();
@@ -182,7 +188,7 @@ public class Login extends javax.swing.JFrame {
 
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JLabel LabelUsuario;
     private javax.swing.JButton botaoentrar;
     private javax.swing.JButton botaosair;

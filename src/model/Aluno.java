@@ -1,13 +1,9 @@
 package model;
 
-import java.util.Date;
-import java.util.List;
-
 public class Aluno extends Usuario {
 
     private long codigoMatricula;
     private String nome, endereco, dataNascimento, dataMatricula;
-    private List<Matricula> matriculas;
     private Telefone telefone;
     private String peso, altura;
     private double imc;
@@ -20,25 +16,25 @@ public class Aluno extends Usuario {
     public Aluno() {
     }
 
-    public Aluno(String username, String senha, Acesso tipoAcesso) {
-        super(username, senha, tipoAcesso);
+    public Aluno(String username, Acesso tipoAcesso) {
+        super(username, tipoAcesso);
         this.codigoMatricula = qtdAlunos;
+        setSenha(this.codigoMatricula + getUsername());
     }
 
-    public Aluno(String dataMatricula, String nome, String endereco, String dataNascimento, List<Matricula> matriculas,
-            Telefone telefone, String peso, String altura, double imc, String username, String senha,
-            Acesso tipoAcesso) {
-        super(username, senha, tipoAcesso);
+    public Aluno(String dataMatricula, String nome, String endereco, String dataNascimento, Telefone telefone,
+            String peso, String altura, String username, Acesso tipoAcesso) {
+        super(username, tipoAcesso);
         this.codigoMatricula = qtdAlunos;
+        setSenha(this.codigoMatricula + getUsername());
         this.dataMatricula = dataMatricula;
         this.nome = nome;
         this.endereco = endereco;
         this.dataNascimento = dataNascimento;
-        this.matriculas = matriculas;
         this.telefone = telefone;
         this.peso = peso;
         this.altura = altura;
-        this.imc = imc;
+        this.imc = IMC.calcularIMC(peso, altura);
     }
 
     public long getCodigoMatricula() {
@@ -81,14 +77,6 @@ public class Aluno extends Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public List<Matricula> getMatriculas() {
-        return matriculas;
-    }
-
-    public void setMatriculas(List<Matricula> matriculas) {
-        this.matriculas = matriculas;
-    }
-
     public Telefone getTelefone() {
         return telefone;
     }
@@ -128,15 +116,13 @@ public class Aluno extends Usuario {
     public static void setQtdAlunos(int qtdAlunos) {
         Aluno.qtdAlunos = qtdAlunos;
     }
-    
-    
 
     @Override
     public String toString() {
         return "{" + " codigoMatricula='" + codigoMatricula + "'" + ", dataMatricula='" + dataMatricula + "'"
                 + ", nome='" + nome + "'" + ", endereco='" + endereco + "'" + ", dataNascimento='" + dataNascimento
-                + "'" + ", matriculas='" + matriculas + "'" + ", telefone='" + telefone + "'" + ", peso='" + peso + "'"
-                + ", altura='" + altura + "'" + ", imc='" + imc + "'" + "}";
+                + "'" + "'" + ", telefone='" + telefone + "'" + ", peso='" + peso + "'" + ", altura='" + altura + "'"
+                + ", imc='" + imc + "'" + "}";
     }
 
 }

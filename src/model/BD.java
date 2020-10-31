@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import utils.Validator;
+
 /**
  *
  * @author lps10
@@ -18,13 +20,28 @@ public class BD {
     public static List<Usuario> usuarios = new ArrayList<>();
     public static List<Turma> turmas = new ArrayList<>();
     public static List<Atividade> atividades = new ArrayList<>();
-    public static Gestor gestor = new Gestor("gestor", "gestor", "gestor", Acesso.GESTOR);
+    public static List<Matricula> matriculas = new ArrayList<>();
+    public static Gestor gestor = new Gestor("gestor", "gestor", Acesso.GESTOR);
     public static Usuario usuarioLogado;
 
     public static void generateBd() {
-        usuarios.add(new Gestor("gestor", "gestor", Acesso.GESTOR));
-        usuarios.add(new Aluno("aluno", "aluno", Acesso.ALUNO));
-        usuarios.add(new Professor("prof", "prof", Acesso.PROFESSOR));
+        Aluno aluno = new Aluno("30/10/2020", "Lucas", "Rua X", "14/05/1994", new Telefone("11912345678"), "75", "1.75",
+                "aluno", Acesso.ALUNO);
+
+        Professor prof = new Professor("prof", "123456897", "14/10/1990", "Zumba", new ArrayList<>(), turmas, "prof",
+                Acesso.PROFESSOR);
+
+        Gestor gestor = new Gestor("Gestor", "gestor", Acesso.GESTOR);
+
+        usuarios.add(gestor);
+        usuarios.add(aluno);
+        usuarios.add(prof);
+
+        matriculas.add(new Matricula("30/10/2020", aluno, 0));
+
+        turmas.add(new Turma(matriculas, "10:00", "60", "30/10/2020", "30/11/2020", prof));
+
+        atividades.add(new Atividade("zumba", "aula de zumba", turmas));
     }
 
     public static Usuario getUsuarioByUsername(String username) {
@@ -41,16 +58,18 @@ public class BD {
 
     public static void setUsuarioLogado(Usuario usuarioLogado) throws CloneNotSupportedException {
 
-        if (usuarioLogado.getTipoAcesso().equals(Acesso.ALUNO)) {
-            Aluno aluno = (Aluno) usuarioLogado;
-            BD.usuarioLogado = aluno;
-        } else if (usuarioLogado.getTipoAcesso().equals(Acesso.PROFESSOR)) {
-            Professor prof = (Professor) usuarioLogado;
-            BD.usuarioLogado = prof;
-        } else {
-            Gestor gestor = (Gestor) usuarioLogado;
-            BD.usuarioLogado = gestor;
-        }
+        BD.usuarioLogado = Validator.configurarAcesso(usuarioLogado);
+
+        // if (usuarioLogado.getTipoAcesso().equals(Acesso.ALUNO)) {
+        // Aluno aluno = (Aluno) usuarioLogado;
+        // BD.usuarioLogado = aluno;
+        // } else if (usuarioLogado.getTipoAcesso().equals(Acesso.PROFESSOR)) {
+        // Professor prof = (Professor) usuarioLogado;
+        // BD.usuarioLogado = prof;
+        // } else {
+        // Gestor gestor = (Gestor) usuarioLogado;
+        // BD.usuarioLogado = gestor;
+        // }
 
     }
 

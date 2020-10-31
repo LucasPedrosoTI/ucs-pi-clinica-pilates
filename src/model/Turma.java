@@ -30,9 +30,9 @@ public class Turma {
     public Turma() {
     }
 
-    public Turma(int turmaId, List<Matricula> matriculas, String horarioAula, String duracaoAula, String dataInicial,
+    public Turma(List<Matricula> matriculas, String horarioAula, String duracaoAula, String dataInicial,
             String dataFinal, Professor professor) {
-        this.turmaId = turmaId;
+        this.turmaId = turmaCount;
         this.matriculas = matriculas;
         this.horarioAula = horarioAula;
         this.duracaoAula = duracaoAula;
@@ -95,41 +95,6 @@ public class Turma {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
-    }
-
-    public Turma turmaId(int turmaId) {
-        this.turmaId = turmaId;
-        return this;
-    }
-
-    public Turma matriculas(List<Matricula> matriculas) {
-        this.matriculas = matriculas;
-        return this;
-    }
-
-    public Turma horarioAula(String horarioAula) {
-        this.horarioAula = horarioAula;
-        return this;
-    }
-
-    public Turma duracaoAula(String duracaoAula) {
-        this.duracaoAula = duracaoAula;
-        return this;
-    }
-
-    public Turma dataInicial(String dataInicial) {
-        this.dataInicial = dataInicial;
-        return this;
-    }
-
-    public Turma dataFinal(String dataFinal) {
-        this.dataFinal = dataFinal;
-        return this;
-    }
-
-    public Turma professor(Professor professor) {
-        this.professor = professor;
-        return this;
     }
 
     @Override

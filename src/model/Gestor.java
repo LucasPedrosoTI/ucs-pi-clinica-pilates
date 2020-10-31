@@ -12,20 +12,18 @@ package model;
 public class Gestor extends Usuario {
     private String nome;
 
-    
     public Gestor() {
     }
-    
-    public Gestor(String username, String senha, Acesso tipoAcesso) {
-        super(username, senha, tipoAcesso);
+
+    public Gestor(String username, Acesso tipoAcesso) {
+        super(username, tipoAcesso);
     }
 
-    public Gestor(String nome, String username, String senha, Acesso tipoAcesso) {
-        super(username, senha, tipoAcesso);
+    public Gestor(String nome, String username, Acesso tipoAcesso) {
+        super(username, tipoAcesso);
         this.nome = nome;
+        setSenha(username);
     }
-    
-    
 
     @Override
     public String toString() {
@@ -33,6 +31,4 @@ public class Gestor extends Usuario {
         return "Gestor{" + "nome=" + nome + '}';
     }
 
-    
-    
 }

@@ -6,7 +6,8 @@
 package utils;
 
 import java.util.List;
-import model.Usuario;
+
+import model.*;
 
 /**
  *
@@ -25,6 +26,21 @@ public class Validator {
         }
 
         return false;
+    }
+
+    public static Usuario configurarAcesso(Usuario usuario) throws CloneNotSupportedException {
+        switch (usuario.getTipoAcesso()) {
+            case ALUNO:
+                return (Aluno) usuario.clone();
+            case PROFESSOR:
+                return (Professor) usuario.clone();
+            default:
+                return (Gestor) usuario.clone();
+        }
+    }
+
+    public static boolean eGestor(Usuario usuario) {
+        return usuario.getTipoAcesso().equals(Acesso.GESTOR);
     }
 
 }

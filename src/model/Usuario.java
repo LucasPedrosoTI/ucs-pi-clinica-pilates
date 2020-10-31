@@ -21,9 +21,9 @@ public class Usuario implements Cloneable {
     public Usuario() {
     }
 
-    public Usuario(String username, String senha, Acesso tipoAcesso) {
+    public Usuario(String username, Acesso tipoAcesso) {
         this.username = username;
-        this.senha = senha;
+        this.senha = username;
         this.tipoAcesso = tipoAcesso;
     }
 

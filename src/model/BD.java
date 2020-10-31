@@ -46,6 +46,10 @@ public class BD {
         atividades.add(new Atividade("zumba", "aula de zumba", turmas));
     }
 
+    public static List<Usuario> getAllAlunos() {
+        return BD.usuarios.stream().filter(u -> u.getTipoAcesso().equals(Acesso.ALUNO)).collect(Collectors.toList());
+    }
+
     public static Usuario getUsuarioByUsername(String username) {
 
         return usuarios.stream().filter(usuario -> usuario.getUsername().equals(username)).collect(Collectors.toList())
@@ -77,20 +81,7 @@ public class BD {
     }
 
     public static void setUsuarioLogado(Usuario usuarioLogado) throws CloneNotSupportedException {
-
         BD.usuarioLogado = Validator.configurarAcesso(usuarioLogado);
-
-        // if (usuarioLogado.getTipoAcesso().equals(Acesso.ALUNO)) {
-        // Aluno aluno = (Aluno) usuarioLogado;
-        // BD.usuarioLogado = aluno;
-        // } else if (usuarioLogado.getTipoAcesso().equals(Acesso.PROFESSOR)) {
-        // Professor prof = (Professor) usuarioLogado;
-        // BD.usuarioLogado = prof;
-        // } else {
-        // Gestor gestor = (Gestor) usuarioLogado;
-        // BD.usuarioLogado = gestor;
-        // }
-
     }
 
     public static List<Usuario> getUsuarios() {

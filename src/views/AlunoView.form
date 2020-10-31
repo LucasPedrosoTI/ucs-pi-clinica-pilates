@@ -358,7 +358,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jButtonCancelar" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonALTERAR" min="-2" pref="105" max="-2" attributes="0"/>
+                      <Component id="jButtonAlterar" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButtonSALVAR" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -371,7 +371,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButtonALTERAR" alignment="3" pref="78" max="32767" attributes="0"/>
+                              <Component id="jButtonAlterar" alignment="3" pref="78" max="32767" attributes="0"/>
                               <Component id="jButtonVOLTAR" alignment="3" pref="78" max="32767" attributes="0"/>
                               <Component id="jButtonSALVAR" alignment="3" pref="78" max="32767" attributes="0"/>
                           </Group>
@@ -383,11 +383,14 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButtonALTERAR">
+            <Component class="javax.swing.JButton" name="jButtonAlterar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="ALTERAR"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAlterarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonVOLTAR">
               <Properties>

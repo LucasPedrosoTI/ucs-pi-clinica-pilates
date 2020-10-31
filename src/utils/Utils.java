@@ -35,7 +35,7 @@ public class Utils {
   public static boolean tiverCamposNaoPreenchidos(List<JTextField> campos) {
     boolean campoVazio = false;
     for (JTextField campo : campos) {
-      campoVazio = campo.getText().length() <= 0;
+      campoVazio = campo.getText().trim().length() <= 0;
     }
 
     return campoVazio;

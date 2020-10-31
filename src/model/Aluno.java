@@ -9,26 +9,21 @@ public class Aluno extends Usuario {
     private Telefone telefone;
     private String peso, altura;
     private double imc;
-    private static int qtdAlunos = 0;
-
-    {
-        qtdAlunos++;
-    }
 
     public Aluno() {
     }
 
     public Aluno(String username, Acesso tipoAcesso) {
         super(username, tipoAcesso);
-        this.codigoMatricula = (long) qtdAlunos;
-        setSenha(this.codigoMatricula + getUsername());
+        setSenha(getUsername());
     }
 
     public Aluno(String dataMatricula, String nome, String endereco, String dataNascimento, Telefone telefone,
             String peso, String altura, String username, Acesso tipoAcesso) throws InvalidAttributeValueException {
         super(username, tipoAcesso);
-        this.codigoMatricula = (long) qtdAlunos;
-        setSenha(this.codigoMatricula + getUsername());
+        this.codigoMatricula = (long) BD.getAllAlunos().size() + 1;
+        setUsername(this.codigoMatricula + nome.replaceAll(" ", "").toLowerCase());
+        setSenha(this.codigoMatricula + username);
         this.dataMatricula = dataMatricula;
         this.nome = nome;
         this.endereco = endereco;
@@ -105,14 +100,6 @@ public class Aluno extends Usuario {
 
     public void setImc(double imc) {
         this.imc = imc;
-    }
-
-    public static int getQtdAlunos() {
-        return qtdAlunos;
-    }
-
-    public static void setQtdAlunos(int qtdAlunos) {
-        Aluno.qtdAlunos = qtdAlunos;
     }
 
     @Override

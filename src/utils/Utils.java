@@ -41,4 +41,8 @@ public class Utils {
     return campoVazio;
   }
 
+  public static void toggleButton(JButton botao) {
+    botao.setEnabled(!botao.isEnabled());
+  }
+
 }

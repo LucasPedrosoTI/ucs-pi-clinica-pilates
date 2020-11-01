@@ -8,6 +8,10 @@ package views;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.directory.InvalidAttributeValueException;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
+import model.Aluno;
+import model.BD;
 
 /**
  *
@@ -136,7 +140,10 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenucadprofessorActionPerformed(java.awt.event.ActionEvent evt) throws CloneNotSupportedException {// GEN-FIRST:event_jMenucadprofessorActionPerformed
         // TODO add your handling code here:
-
+        if(BD.usuarioLogado instanceof Aluno) {
+            showMessageDialog(this, "Acesso restrito a professores e administradores", "Atenção", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         ProfessorView professor1 = new ProfessorView();
         professor1.setVisible(true);
         dispose();

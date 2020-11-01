@@ -47,7 +47,8 @@ public class ProfessorView extends javax.swing.JFrame {
         botoes.add(jButtonALTERAR);
         botoes.add(jButtonCANCELAR);
         botoes.add(jButtonSALVAR);
-
+        botoes.add(jButtonPesquisar);
+        
         campos.add(jTextFieldDATACADASTRO);
         campos.add(jTextFieldNOME);
         campos.add(jTextFieldDATANASCIMENTO);

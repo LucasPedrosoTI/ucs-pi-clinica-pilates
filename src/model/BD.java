@@ -8,9 +8,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import javax.naming.directory.InvalidAttributeValueException;
-
 import utils.Validator;
 
 /**
@@ -30,7 +28,7 @@ public class BD {
         Aluno aluno = new Aluno("30/10/2020", "Lucas", "Rua X", "14/05/1994", new Telefone("11912345678"), "75", "1.75",
                 "aluno", Acesso.ALUNO);
 
-        Professor prof = new Professor("prof", "123456", "14/10/1990", "Zumba", new ArrayList<>(), turmas, "prof",
+        Professor prof = new Professor("prof", "123456", "14/10/1990", "Zumba", "30/10/2020", new Telefone("11912345678"), turmas, "prof",
                 Acesso.PROFESSOR);
 
         Gestor gestor = new Gestor("Gestor", "gestor", Acesso.GESTOR);
@@ -50,28 +48,59 @@ public class BD {
         return BD.usuarios.stream().filter(u -> u.getTipoAcesso().equals(Acesso.ALUNO)).collect(Collectors.toList());
     }
 
+    public static List<Usuario> getAllProfessores() {
+        return BD.usuarios.stream().filter(u -> u.getTipoAcesso().equals(Acesso.PROFESSOR))
+                .collect(Collectors.toList());
+    }
+
     public static Usuario getUsuarioByUsername(String username) {
 
         return usuarios.stream().filter(usuario -> usuario.getUsername().equals(username)).collect(Collectors.toList())
                 .get(0);
     }
 
-    public static Usuario getAlunoByCodigoMatricula(String codigoMatricula) {
-        return usuarios.stream().filter(usuario -> {
-            Aluno aluno = new Aluno();
-            try {
-                if (usuario.getTipoAcesso().equals(Acesso.ALUNO)) {
-                    aluno = (Aluno) usuario.clone();
-                    return aluno.getCodigoMatricula().equals(Long.valueOf(codigoMatricula));
-                } else {
+    public static Usuario getAlunoByCodigoMatricula(String codigoMatricula) throws InvalidAttributeValueException {
+        try {
+            return usuarios.stream().filter(usuario -> {
+                Aluno aluno = new Aluno();
+                try {
+                    if (usuario.getTipoAcesso().equals(Acesso.ALUNO)) {
+                        aluno = (Aluno) usuario.clone();
+                        return aluno.getCodigoMatricula().equals(Long.valueOf(codigoMatricula));
+                    } else {
+                        return false;
+                    }
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
                     return false;
                 }
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return false;
-            }
+            }).collect(Collectors.toList()).get(0);
+        } catch (Exception e) {
+            throw new InvalidAttributeValueException("Nenhum usuário encontrado");
+        }
 
-        }).collect(Collectors.toList()).get(0);
+    }
+    
+    
+        public static Usuario getProfessorByCodigo(String codigo) throws InvalidAttributeValueException {
+        try {
+            return usuarios.stream().filter(usuario -> {
+                Professor prof = new Professor();
+                try {
+                    if (usuario.getTipoAcesso().equals(Acesso.PROFESSOR)) {
+                        prof = (Professor) usuario.clone();
+                        return prof.getCodigoProfessor().equals(Long.valueOf(codigo));
+                    } else {
+                        return false;
+                    }
+                } catch (CloneNotSupportedException e) {
+                    return false;
+                }
+            }).collect(Collectors.toList()).get(0);
+        } catch (Exception e) {
+            throw new InvalidAttributeValueException("Nenhum usuário encontrado");
+        }
+
     }
 
     public static Usuario getUsuarioLogado() {

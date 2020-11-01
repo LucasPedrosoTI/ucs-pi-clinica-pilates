@@ -1,10 +1,7 @@
 package views;
 
 import javax.naming.directory.InvalidAttributeValueException;
-
 import model.*;
-import model.BD;
-
 import utils.Validator;
 
 public class Login extends javax.swing.JFrame {

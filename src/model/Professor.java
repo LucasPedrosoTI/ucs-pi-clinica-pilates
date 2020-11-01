@@ -3,8 +3,9 @@ package model;
 import java.util.List;
 
 public class Professor extends Usuario {
-    private String nome, rg, data_nascimento, titulacao;
-    private List<Telefone> telefones;
+    private long codigoProfessor;
+    private String nome, rg, dataNascimento, titulacao, dataCadastro;
+    private Telefone telefone;
     private List<Turma> turmas;
 
     public Professor() {
@@ -12,19 +13,26 @@ public class Professor extends Usuario {
 
     public Professor(String username, Acesso tipoAcesso) {
         super(username, tipoAcesso);
+        setSenha(getUsername());
     }
 
-    public Professor(String nome, String rg, String data_nascimento, String titulacao, List<Telefone> telefones,
-            List<Turma> turmas, String username, Acesso tipoAcesso) {
+    public Professor(String nome, String rg, String dataNascimento, String titulacao, String dataCadastro,
+            Telefone telefone, List<Turma> turmas, String username, Acesso tipoAcesso) {
         super(username, tipoAcesso);
+        this.codigoProfessor = (long) BD.getAllProfessores().size() + 1;
         this.nome = nome;
         this.rg = rg;
         setSenha(rg);
         setUsername(rg);
-        this.data_nascimento = data_nascimento;
+        this.dataNascimento = dataNascimento;
+        this.dataCadastro = dataCadastro;
         this.titulacao = titulacao;
-        this.telefones = telefones;
+        this.telefone = telefone;
         this.turmas = turmas;
+    }
+
+    public Long getCodigoProfessor() {
+        return codigoProfessor;
     }
 
     public String getNome() {
@@ -43,12 +51,12 @@ public class Professor extends Usuario {
         this.rg = rg;
     }
 
-    public String getData_nascimento() {
-        return this.data_nascimento;
+    public String getDataNascimento() {
+        return this.dataNascimento;
     }
 
-    public void setData_nascimento(String data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getTitulacao() {
@@ -59,13 +67,14 @@ public class Professor extends Usuario {
         this.titulacao = titulacao;
     }
 
-    public List<Telefone> getTelefones() {
-        return this.telefones;
+    public Telefone getTelefone() {
+        return telefone;
     }
 
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
+    public void setTelefone(Telefone telefone) {
+        this.telefone = telefone;
     }
+
 
     public List<Turma> getTurmas() {
         return this.turmas;
@@ -75,11 +84,29 @@ public class Professor extends Usuario {
         this.turmas = turmas;
     }
 
+    public String getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(String dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
     @Override
     public String toString() {
-        return "{" + " nome='" + getNome() + "'" + ", rg='" + getRg() + "'" + ", data_nascimento='"
-                + getData_nascimento() + "'" + ", titulacao='" + getTitulacao() + "'" + ", telefones='" + getTelefones()
-                + "'" + ", turmas='" + getTurmas() + "'" + "}";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Professor{codigoProfessor=").append(codigoProfessor);
+        sb.append(", nome=").append(nome);
+        sb.append(", rg=").append(rg);
+        sb.append(", dataNascimento=").append(dataNascimento);
+        sb.append(", titulacao=").append(titulacao);
+        sb.append(", dataCadastro=").append(dataCadastro);
+        sb.append(", telefones=").append(telefone);
+        sb.append(", turmas=").append(turmas);
+        sb.append('}');
+        return sb.toString();
     }
+    
+    
 
 }

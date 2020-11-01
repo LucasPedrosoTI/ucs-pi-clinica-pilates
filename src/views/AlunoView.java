@@ -11,28 +11,24 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.naming.directory.InvalidAttributeValueException;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JTextField;
-
 import model.Acesso;
+import model.Aluno;
 import model.BD;
 import model.Gestor;
-import model.Aluno;
 import model.Professor;
 import model.Telefone;
 import model.Usuario;
 import utils.Utils;
-import utils.Validator;
-
-import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.Utils.tiverCamposNaoPreenchidos;
 import static utils.Utils.toggleButton;
+import utils.Validator;
 
 /**
  *
@@ -482,8 +478,7 @@ public class AlunoView extends javax.swing.JFrame {
                 throw new InvalidAttributeValueException("Informe um número de matrícula válido");
             }
 
-            Usuario resultado = Optional.of(BD.getAlunoByCodigoMatricula(codigoMatricula.trim()))
-                    .orElseThrow(() -> new InvalidAttributeValueException("Aluno não encontrado"));
+            Usuario resultado = BD.getAlunoByCodigoMatricula(codigoMatricula.trim());
 
             Aluno alunoEncontrado = (Aluno) resultado.clone();
 

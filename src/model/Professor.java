@@ -20,7 +20,7 @@ public class Professor extends Usuario {
         this.nome = nome;
         this.rg = rg;
         setSenha(rg);
-        setUsername(rg + nome);
+        setUsername(rg);
         this.data_nascimento = data_nascimento;
         this.titulacao = titulacao;
         this.telefones = telefones;

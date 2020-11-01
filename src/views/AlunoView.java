@@ -22,6 +22,7 @@ import javax.swing.JTextField;
 
 import model.Acesso;
 import model.BD;
+import model.Gestor;
 import model.Aluno;
 import model.Professor;
 import model.Telefone;
@@ -65,12 +66,12 @@ public class AlunoView extends javax.swing.JFrame {
         botoes.add(jButtonPesquisar);
         botoes.add(jButtonSALVAR);
 
-        jTextFieldNome.setText("teste");
-        jTextFieldDataNasc.setText("teste");
-        jTextFieldEndereco.setText("teste");
-        jTextFieldTelefone.setText("teste");
-        jTextFieldAltura.setText("1.45");
-        jTextFieldPeso.setText("50");
+        // jTextFieldNome.setText("João");
+        // jTextFieldDataNasc.setText("01/01/1994");
+        // jTextFieldEndereco.setText("Rua do Fulano");
+        // jTextFieldTelefone.setText("11912345678");
+        // jTextFieldAltura.setText("1.70");
+        // jTextFieldPeso.setText("70");
 
         Usuario usuarioLogado = Validator.configurarAcesso(BD.getUsuarioLogado());
 
@@ -82,7 +83,6 @@ public class AlunoView extends javax.swing.JFrame {
         if (usuarioLogado instanceof Professor) {
             jTextFieldPeso.setEditable(true);
             jTextFieldPeso.setEnabled(true);
-            toggleButton(jButtonAlterar);
             toggleButton(jButtonPesquisar);
         }
 
@@ -459,10 +459,14 @@ public class AlunoView extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButtonCancelarActionPerformed
         Utils.limparCampos(campos);
-        toggleButton(jButtonSALVAR);
         toggleButton(jButtonAlterar);
+
         jButtonCancelar.setVisible(false);
         jTextFieldCODIGO.setText("");
+
+        if (BD.usuarioLogado instanceof Gestor) {
+            toggleButton(jButtonSALVAR);
+        }
     }// GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
@@ -494,7 +498,7 @@ public class AlunoView extends javax.swing.JFrame {
             jTextFieldIMC.setText(alunoEncontrado.getImc().toString());
 
             toggleButton(jButtonAlterar);
-            toggleButton(jButtonSALVAR);
+            jButtonSALVAR.setEnabled(false);
             jButtonCancelar.setVisible(true);
 
         } catch (Exception e) {
@@ -561,10 +565,6 @@ public class AlunoView extends javax.swing.JFrame {
                     Acesso.ALUNO);
 
             BD.usuarios.add(aluno);
-
-            // for (Usuario usuario : BD.usuarios) {
-            // System.out.println(">>>>>> " + usuario.getUsername());
-            // }
 
             Utils.limparCampos(campos);
 

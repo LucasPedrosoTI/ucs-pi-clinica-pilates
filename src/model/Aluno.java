@@ -23,7 +23,7 @@ public class Aluno extends Usuario {
         super(username, tipoAcesso);
         this.codigoMatricula = (long) BD.getAllAlunos().size() + 1;
         setUsername(this.codigoMatricula + nome.replaceAll(" ", "").toLowerCase());
-        setSenha(this.codigoMatricula + username);
+        setSenha(this.codigoMatricula + nome.replaceAll(" ", "").toLowerCase());
         this.dataMatricula = dataMatricula;
         this.nome = nome;
         this.endereco = endereco;
